@@ -10,10 +10,30 @@ body,html {
   font-family: sans-serif;
 }
 
+.randomize {
+  display: flex;
+  justify-content: center;
+  margin: 5rem;
+}
+
+#rButton{
+  background-color: green;
+  border-radius: .5rem;
+  font-size: 1.5rem;
+  padding: 3rem;
+}
+
+#sButton{
+  background-color: red;
+  border-radius: .5rem;
+  font-size: 1.5rem;
+  padding: 3rem;
+}
+
 .keys {
   display: flex;
   flex: 1;
-  min-height: 100vh;
+  min-height: 80vh;
   align-items: center;
   justify-content: center;
 }

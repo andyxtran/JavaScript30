@@ -31,28 +31,59 @@
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+    const fifteenHundreds = inventors.filter(e => e.year >= 1500 && e.year < 1600);
+    console.table(fifteenHundreds);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
+    const firstLastNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+    console.log(firstLastNames);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    const sortedInventors = inventors.sort((a, b) => a.year - b.year);
+    console.table(sortedInventors);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
+    const yearsLiving = inventors.reduce((total, inventor) => {
+      return total + (inventor.passed - inventor.year);
+    }, 0);
+    console.log(yearsLiving);
 
     // 5. Sort the inventors by years lived
+    const sortedByYearsLived = inventors.sort((a, b) => {
+      const firstInventor = a.passed - a.year;
+      const secondInventor = b.passed - b.year;
+      return secondInventor - firstInventor;
+    });
+
+    console.table(sortedByYearsLived);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-
+    // const category = document.querySelector('.mw-category');
+    // const links = Array.from(category.querySelectorAll('a'));
+    // const de = links.map(el => el.textContent).filter(street => street.includes('de'));
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    const sortedByLastName = people.sort((firstPerson, secondPerson) => {
+      const [aLast, aFirst] = firstPerson.split(', ');
+      const [bLast, bFirst] = secondPerson.split(', ');
+      return aLast > bLast ? 1 : -1;
+    });;
+    console.log(sortedByLastName);
+
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    const hashed = data.reduce((obj, el) => {
+      obj[el] = obj[el] ? obj[el] + 1 : 1;
+      return obj;
+    }, {});
+    console.log(hashed);
 
   </script>
 </body>
